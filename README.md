@@ -24,3 +24,13 @@ Tested with dnd5e, might work on other systems as well though.
 Super Charged by:
 - [Edit Owned Item Effects](https://github.com/ElfFriend-DnD/foundryvtt-edit-owned-item-effects)
 
+## Technical Details
+
+The module uses the renderItemSheet hook to bind a `DragDrop` instance with callbacks that expect/conform to the data model used by ActorSheet's ActiveEffect drag and drop handlers (`ActorSheet._onDropActiveEffect`). This consists roughly of a dataTransfer object that looks like this:
+
+```
+{
+  type: "ActiveEffect",
+  data: activeEffectDocumentData
+}
+```
