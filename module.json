@@ -2,7 +2,7 @@
   "name": "drop-effects-on-items",
   "title": "Drop Effects on Items",
   "description": "A module which allows effects to be dragged and dropped to and from Item Sheets.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Andrew Krigline",
   "authors": [
     {

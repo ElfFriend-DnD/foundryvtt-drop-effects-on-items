@@ -13,6 +13,10 @@ This module allows active effects to be dragged and dropped to and from Item She
 
 With it enabled, creating duplicate effects between different items (e.g. "Poisoned" for various weapons or spells which inflict that condition) is as simple as dragging and dropping from one to the next.
 
+It also allows the application of item effects onto actors from the item sheet directly.
+
+https://user-images.githubusercontent.com/7644614/148474868-40e45f9b-042f-4241-a54d-8b878a3f72cb.mp4
+
 ## Compatibility
 
 Tested with dnd5e, might work on other systems as well though.

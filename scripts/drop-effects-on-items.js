@@ -1,4 +1,4 @@
-export class DropEffectsOnItems {
+class DropEffectsOnItems {
   static MODULE_NAME = "drop-effects-on-items";
   static MODULE_TITLE = "Drop Effects on Items";
 
@@ -17,18 +17,18 @@ export class DropEffectsOnItems {
   static handleItemSheetRender = (app, html) => {
     const effectsList = html.find('.effects-list');
 
-    if (app.item.isOwned || !effectsList || !app.isEditable) {
+    if (!effectsList) {
       return;
     }
-
-    this.log('binding dragdrop');
 
     const dragDrop = new DragDrop({
       dragSelector: '[data-effect-id]',
       dropSelector: '.effects-list',
-      permissions: { drag: () => app.isEditable, drop: () => app.isEditable },
+      permissions: { dragstart: () => true, dragdrop: () => app.isEditable && !app.item.isOwned },
       callbacks: { dragstart: this._onDragStart(app.object), drop: this._onDrop(app.object) }
     });
+
+    this.log('binding dragdrop', dragDrop);
 
     dragDrop.bind(html[0]);
   }
@@ -79,6 +79,8 @@ export class DropEffectsOnItems {
    * When an effect is dropped on the sheet, create a copy of that effect
    */
   static _onDrop = (effectParent) => async (event) => {
+    this.log('DragDrop dropping');
+
     if (!effectParent) {
       return;
     }
