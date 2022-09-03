@@ -60,11 +60,8 @@ class DropEffectsOnItems {
       return;
     }
 
-    // Create drag data
-    const dragData = {
-      type: 'ActiveEffect',
-      data: effect.data,
-    };
+    // outputs the type and uuid
+    const dragData = effect.toDragData();
 
     this.log('DragDrop dragStart:', {
       effect,
@@ -102,24 +99,25 @@ class DropEffectsOnItems {
       return false;
     }
 
-
     if (dropData.type !== 'ActiveEffect') return false;
 
+    const effectDocument = await ActiveEffect.implementation.fromDropData(dropData);
 
-    if (!!effectParent.effects.get(dropData.data._id)) {
-      return;
+    if (!effectDocument) {
+      return false;
     }
 
     this.log('DragDrop drop starting:', {
       effectParent,
       dropData,
+      effectDocument,
     });
 
+    // create the new effect but make the 'origin' the new parent item
     return ActiveEffect.create(
       {
-        ...dropData.data,
+        ...effectDocument.toObject(),
         origin: effectParent.uuid,
-        _id: null,
       }, {parent: effectParent}
     );
   }
