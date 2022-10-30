@@ -9,6 +9,13 @@
 [![ko-fi](https://img.shields.io/badge/-buy%20me%20a%20coke-%23FF5E5B)](https://ko-fi.com/elffriend)
 [![patreon](https://img.shields.io/badge/-patreon-%23FF424D)](https://www.patreon.com/ElfFriend_DnD)
 
+## Deprecation Warning
+
+This module's functionality was integrated directly into the dnd5e core system codebase with version 2.1.x: [Pull Request #1766](https://github.com/foundryvtt/dnd5e/pull/1766). This module has been marked as incompatible with the dnd5e system starting in 2.1.x.
+
+---
+
+
 This module allows active effects to be dragged and dropped to and from Item Sheets.
 
 With it enabled, creating duplicate effects between different items (e.g. "Poisoned" for various weapons or spells which inflict that condition) is as simple as dragging and dropping from one to the next.

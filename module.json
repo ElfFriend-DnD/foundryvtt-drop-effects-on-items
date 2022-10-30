@@ -2,7 +2,7 @@
   "id": "drop-effects-on-items",
   "title": "Drop Effects on Items",
   "description": "A module which allows effects to be dragged and dropped to and from Item Sheets.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Andrew Krigline",
   "authors": [
     {
@@ -17,7 +17,18 @@
     "./scripts/drop-effects-on-items.js"
   ],
   "compatibility": {
-    "minimum": 10
+    "minimum": 10,
+    "verified": 10
+  },
+  "relationships": {
+    "systems": [{
+      "id": "dnd5e",
+      "type": "system",
+      "compatibility": {
+        "minimum": "2.0.0",
+        "maximum": "2.0.9999"
+      }
+    }]
   },
   "url": "https://github.com/ElfFriend-DnD/foundryvtt-drop-effects-on-items",
   "bugs": "https://github.com/ElfFriend-DnD/foundryvtt-drop-effects-on-items/issues",
